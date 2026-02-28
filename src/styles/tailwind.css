@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FFFFFF; /* white */
+    --color-foreground: #1A1A1A; /* gray-900 */
+    --color-border: #E9ECEF; /* gray-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #C8102E; /* red-700 */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1A1A1A; /* gray-900 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F8F9FA; /* gray-50 */
+    --color-muted-foreground: #6C757D; /* gray-500 */
+    
+    /* Brand Colors */
+    --color-primary: #C8102E; /* red-700 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #8B4513; /* brown-700 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* State Colors */
+    --color-destructive: #DC3545; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-accent: #D4AF37; /* yellow-600 */
+    --color-accent-foreground: #1A1A1A; /* gray-900 */
+    --color-success: #28A745; /* green-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #FFC107; /* yellow-400 */
+    --color-warning-foreground: #1A1A1A; /* gray-900 */
+    --color-error: #DC3545; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Text Colors */
+    --color-text-primary: #1A1A1A; /* gray-900 */
+    --color-text-secondary: #6C757D; /* gray-500 */
+    
+    /* Surface Colors */
+    --color-surface: #F8F9FA; /* gray-50 */
+    --color-surface-foreground: #1A1A1A; /* gray-900 */
+    
+    /* Trust Colors */
+    --color-trust: #2E5984; /* blue-800 */
+    --color-trust-foreground: #FFFFFF; /* white */
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+.btn-primary  {
+    @apply bg-primary text-primary-foreground transition-colors duration-300;
+  }
+.btn-secondary  {
+    @apply bg-secondary text-secondary-foreground transition-colors duration-300;
+  }
+  
+  .text-gradient-morocco {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-morocco {
+    box-shadow: 0 4px 12px rgba(200, 16, 46, 0.08);
+  }
+  
+  .border-morocco {
+    border: 1px solid rgba(200, 16, 46, 0.1);
+  }
+  
+  .hero-parallax {
+    transform: translate3d(0, 0, 0);
+    background-attachment: fixed;
+  }
+  
+  .cultural-bridge-enter {
+    animation: culturalBridgeEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  @keyframes culturalBridgeEnter {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .moroccan-pattern-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .moroccan-pattern-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+    pointer-events: none;
+  }
+  
+  .moroccan-pattern-reveal:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animation-smooth {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
