@@ -14,8 +14,7 @@ const Header = ({ className = '' }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -23,7 +22,7 @@ const Header = ({ className = '' }: HeaderProps) => {
   }, []);
 
   const navigationItems = [
-    { name: 'Accueil', href: '/homepage', icon: 'HomeIcon' },
+    { name: 'Accueil', href: '/', icon: 'HomeIcon' },
     { name: 'Services', href: '/services', icon: 'BriefcaseIcon' },
     { name: 'À propos', href: '/about', icon: 'UserGroupIcon' },
     { name: 'Guide Maroc', href: '/morocco-guide', icon: 'MapIcon' },
@@ -54,7 +53,7 @@ const Header = ({ className = '' }: HeaderProps) => {
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link 
-            href="/homepage" 
+            href="/" 
             className="flex items-center space-x-3 group"
             onClick={closeMenu}
           >
